@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ImgCraft</title>
+<meta name="description" content="ImgCraft is an unofficial, lightweight Android frontend for Imgur, built on its v3 API, with no ads or analytics.">
+<meta name="theme-color" content="#0f8f55">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<style>
+  /* Everything is in this file and icon.svg: no fonts, scripts or images from elsewhere, so the
+     site itself doesn't tell anyone you visited. */
+  :root {
+    --bg: #f6f8f7;
+    --surface: #ffffff;
+    --text: #15201b;
+    --muted: #55645d;
+    --line: #dde5e0;
+    --accent: #0f8f55;
+    --accent-strong: #0b7445;
+    --accent-soft: #e2f6eb;
+    --on-accent: #ffffff;
+    --phone: #101614;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0c1110;
+      --surface: #151d1a;
+      --text: #e6eee9;
+      --muted: #9aaba2;
+      --line: #25322d;
+      --accent: #2fc77f;
+      --accent-strong: #5ad89b;
+      --accent-soft: #15301f;
+      --on-accent: #06140d;
+      --phone: #000000;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  a { color: var(--accent-strong); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+  header.top {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 0;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 19px; color: var(--text); text-decoration: none; }
+  .brand img { width: 32px; height: 32px; }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 20px; font-size: 15px; }
+  nav a:hover { color: var(--text); }
+
+  .hero {
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center;
+    padding: 40px 0 72px;
+  }
+  .hero h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.1; margin: 0 0 18px; letter-spacing: -0.02em; }
+  .hero p.lead { font-size: 19px; color: var(--muted); margin: 0 0 28px; max-width: 34em; }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 30px; padding: 0; list-style: none; }
+  .pills li { background: var(--accent-soft); color: var(--accent-strong); border-radius: 999px; padding: 4px 12px; font-size: 14px; font-weight: 600; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn {
+    display: inline-block; padding: 13px 22px; border-radius: 12px; font-weight: 650; text-decoration: none;
+    border: 1px solid var(--line); color: var(--text); background: var(--surface);
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .btn.primary:hover { filter: brightness(1.06); }
+  .note { font-size: 14px; color: var(--muted); margin-top: 14px; }
+
+  /* A drawn phone with an empty staggered grid: no real posts, so nobody's pictures are shown. */
+  .phone {
+    justify-self: center; width: 270px; aspect-ratio: 9 / 19; background: var(--phone);
+    border-radius: 38px; padding: 12px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.35);
+  }
+  .screen { height: 100%; border-radius: 28px; background: #0f1513; overflow: hidden; display: flex; flex-direction: column; }
+  .bar { display: flex; gap: 14px; padding: 18px 14px 10px; font: 600 11px/1 system-ui, sans-serif; color: #7f918a; }
+  .bar b { color: #e6eee9; border-bottom: 2px solid #2fc77f; padding-bottom: 6px; }
+  .grid { flex: 1; columns: 2; column-gap: 6px; padding: 0 8px; overflow: hidden; }
+  .tile { break-inside: avoid; margin-bottom: 6px; border-radius: 8px; position: relative; }
+  .tile::after { content: ""; position: absolute; left: 6px; right: 30%; bottom: 6px; height: 5px; border-radius: 3px; background: rgba(255,255,255,.55); }
+  .t1 { height: 120px; background: linear-gradient(135deg, #1bb76e, #0d6b40); }
+  .t2 { height: 80px;  background: linear-gradient(135deg, #3a4f9a, #1e2a55); }
+  .t3 { height: 96px;  background: linear-gradient(135deg, #c2703d, #6d3a1c); }
+  .t4 { height: 140px; background: linear-gradient(135deg, #7a4fa0, #3b2552); }
+  .t5 { height: 70px;  background: linear-gradient(135deg, #2d8c9a, #164a52); }
+  .t6 { height: 110px; background: linear-gradient(135deg, #a9435a, #4f1e2b); }
+  .t7 { height: 90px;  background: linear-gradient(135deg, #5f7f3a, #2c3c1a); }
+  .nav { display: flex; justify-content: space-around; padding: 12px 0 16px; background: #151d1a; }
+  .nav span { width: 18px; height: 18px; border-radius: 6px; background: #3b4a44; }
+  .nav span:first-child { background: #2fc77f; }
+
+  section { padding: 64px 0; border-top: 1px solid var(--line); }
+  section h2 { font-size: 30px; margin: 0 0 10px; letter-spacing: -0.01em; }
+  section p.sub { color: var(--muted); margin: 0 0 32px; max-width: 40em; }
+
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15.5px; }
+  .card .ico { width: 36px; height: 36px; border-radius: 10px; background: var(--accent-soft); color: var(--accent-strong); display: grid; place-items: center; margin-bottom: 14px; }
+  .card .ico svg { width: 20px; height: 20px; }
+  .card.wide { grid-column: 1 / -1; display: flex; gap: 18px; align-items: flex-start; border-color: var(--accent-soft); }
+  .card.wide .ico { flex: none; margin-bottom: 0; }
+  .card.wide p { max-width: 46em; }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  ul.checks { list-style: none; padding: 0; margin: 0; }
+  ul.checks li { padding: 10px 0 10px 32px; position: relative; border-bottom: 1px solid var(--line); }
+  ul.checks li:last-child { border-bottom: 0; }
+  ul.checks li::before {
+    content: ""; position: absolute; left: 0; top: 14px; width: 20px; height: 20px; border-radius: 50%;
+    background: var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3L15 7' fill='none' stroke='%230f8f55' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 20px no-repeat;
+  }
+  ul.crosses li::before {
+    background: #fde8e8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M6.5 6.5l7 7M13.5 6.5l-7 7' fill='none' stroke='%23c0392b' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") center / 20px no-repeat;
+  }
+  @media (prefers-color-scheme: dark) {
+    ul.crosses li::before { background-color: #3a1c1c; }
+  }
+  h3.list-title { font-size: 17px; margin: 0 0 6px; }
+
+  ol.steps { padding-left: 22px; margin: 0; }
+  ol.steps li { margin-bottom: 10px; }
+  code { font: 0.9em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--accent-soft); padding: 1px 6px; border-radius: 6px; }
+
+  code.wrapcode { word-break: break-all; display: inline-block; margin-top: 4px; }
+  footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+  footer p { margin: 4px 0; }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 40px; padding-top: 16px; }
+    .cards { grid-template-columns: 1fr 1fr; }
+    .two { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 16px; }
+    nav { display: none; }
+    .cards { grid-template-columns: 1fr; }
+    .phone { width: 230px; }
+    section { padding: 48px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#"><img src="icon.svg" alt="">ImgCraft</a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#library">Library</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#download">Download</a>
+      <a href="#updates">Updates</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>A lightweight Android frontend for Imgur.</h1>
+      <p class="lead">ImgCraft is an unofficial app for browsing Imgur on Android, built from scratch on
+        Imgur's v3 API. It shows the feed, posts, comments and profiles, keeps your favourites
+        on your phone, and contains no ads or analytics.</p>
+      <ul class="pills">
+        <li>Imgur v3 API</li>
+        <li>No ads or analytics</li>
+        <li>Local favourites</li>
+        <li>Video frames and pictures to crop, save or share</li>
+        <li>Browse without an account</li>
+      </ul>
+      <div class="actions">
+        <a class="btn primary" href="ImgCraft.apk" download>Download APK</a>
+        <a class="btn" href="#updates">Get updates</a>
+      </div>
+      <p class="note">Android 9 or newer. Personal project, not affiliated with Imgur.</p>
+    </div>
+    <div class="phone" aria-hidden="true">
+      <div class="screen">
+        <div class="bar"><b>Most viral</b><span>User sub</span><span>Top</span></div>
+        <div class="grid">
+          <div class="tile t1"></div><div class="tile t2"></div><div class="tile t3"></div>
+          <div class="tile t5"></div><div class="tile t4"></div><div class="tile t6"></div>
+          <div class="tile t7"></div><div class="tile t2"></div>
+        </div>
+        <div class="nav"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <h2>Features</h2>
+    <p class="sub">ImgCraft is a frontend: the posts, comments and profiles come from Imgur, and the app shows them.</p>
+    <div class="cards">
+      <div class="card wide">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+        <div>
+          <h3>Video frame by frame</h3>
+          <p>Pause a video and tap its left or right side to step one frame back or forward, as quickly as you tap. The camera button takes the frame on screen at the video's own resolution: crop it, save it to your phone, share it, or put it in a comment as a reaction image. Pictures have a crop button that does the same.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/></svg></div>
+        <h3>Feed and search</h3>
+        <p>Most viral, User sub and Top in a staggered grid with infinite scroll. Search with saved searches, tag pages, and swipe between tabs.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="7 4 20 12 7 20 7 4"/></svg></div>
+        <h3>Video playback</h3>
+        <p>Three players are kept ready for the previous, current and next video, and the start of the next videos is loaded ahead, so moving between them is quick.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Comments</h3>
+        <p>Read threads sorted by best, top or newest; deep threads open in place. Once logged in, vote, write and reply, with reaction GIFs.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <h3>Favourites in folders</h3>
+        <p>Keep posts, single images or reaction GIFs in folders. They're stored on your phone, not on your Imgur account.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+        <h3>Follow without an account</h3>
+        <p>Follow users and tags on the device and see their new posts under Notifications. A phone notification is there if you turn it on.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg></div>
+        <h3>Save and share</h3>
+        <p>Save or share one image, the whole album, or a link to the post. Hide tags and users you don't want to see, and dim posts you've seen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="library">
+  <div class="wrap">
+    <h2>Your library stays on your phone</h2>
+    <p class="sub">Favourites, likes and the other lists ImgCraft keeps are stored locally on the device. They aren't
+      sent to Imgur and don't change anything on your Imgur account.</p>
+    <div class="two">
+      <ul class="checks">
+        <li><b>Favourites</b> and their folders are local only.</li>
+        <li><b>Likes</b> is a local list of the posts you upvoted in ImgCraft, kept only when you turn it on.
+          The upvote itself is a normal vote on Imgur.</li>
+        <li><b>Follows</b>, hidden users and hidden tags are local too, so they work without an account.</li>
+      </ul>
+      <div class="card">
+        <h3>Import from Imgur</h3>
+        <p>Once logged in, you can copy your Imgur favourites, favourite folders, followed users and tags,
+          blocked users and muted tags into ImgCraft, each on its own (Settings &gt; Import from Imgur).
+          An import only adds to what's on your phone and changes nothing on Imgur.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy">
+  <div class="wrap">
+    <h2>Private by default</h2>
+    <p class="sub">ImgCraft connects to Imgur's API to show you posts, and to Giphy only if you add your own Giphy key.
+      Anything that remembers what you do is off until you turn it on, and turning it off again deletes it.</p>
+    <div class="two">
+      <div>
+        <h3 class="list-title">What's in the app</h3>
+        <ul class="checks">
+          <li>Two permissions: internet and network state</li>
+          <li>Settings and login stay in app-private storage, left out of backups</li>
+          <li>History, likes, seen posts and recent searches are opt-in</li>
+          <li>Data saving on mobile data or battery saver: videos load on tap</li>
+          <li>Light, dark or pure black theme</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="list-title">What's not</h3>
+        <ul class="checks crosses">
+          <li>No ads or ad SDKs</li>
+          <li>No analytics, crash reporting or Firebase</li>
+          <li>No Google Play services</li>
+          <li>No device ids sent anywhere</li>
+          <li>No account needed to browse</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <h2>Download</h2>
+    <p class="sub">Every version is signed with the same key, so a new one installs over the old one.</p>
+    <div class="two">
+      <ol class="steps">
+        <li>Download <a href="ImgCraft.apk" download>ImgCraft.apk</a> on your phone and open it to install.</li>
+        <li>Open ImgCraft and go to <b>Settings</b>.</li>
+        <li>Paste the client ID of an Imgur API application. ImgCraft doesn't come with one.</li>
+        <li>Optionally log in to vote, comment and import your favourites.</li>
+      </ol>
+      <div class="card">
+        <h3>Open Imgur links in ImgCraft</h3>
+        <p>Share an Imgur link to ImgCraft, or turn on <b>Open supported links</b> for ImgCraft in Android's app settings
+          to open them directly. What changed in each version is under Settings &gt; About.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="updates">
+  <div class="wrap">
+    <h2>Get updates automatically</h2>
+    <p class="sub">ImgCraft has its own F-Droid repository with the newest versions. Add it to F-Droid, or follow it
+      in Obtainium, and you'll be told when there's an update.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Obtainium</h3>
+        <p>Tap the button on your phone with Obtainium installed, then confirm the import.</p>
+        <p class="actions" style="margin-top:16px"><a class="btn primary" id="obtainium" href="#updates">Add to Obtainium</a></p>
+      </div>
+      <div class="card">
+        <h3>F-Droid</h3>
+        <p>Tap the button on your phone to add the repository to F-Droid, Droid-ify or Neo Store. ImgCraft then shows up in the app list.</p>
+        <p class="actions" style="margin-top:16px"><a class="btn primary" id="fdroid" href="#updates">Add to F-Droid</a></p>
+      </div>
+      <div class="card">
+        <h3>By hand</h3>
+        <p>Repository address:<br><code class="wrapcode" id="repo-url">fdroid/repo</code></p>
+        <p style="margin-top:10px">Fingerprint:<br><code class="wrapcode">8F3CF22C3E07C3318E882A707B1F5743A057866662AFA7639D619B488BC69E72</code></p>
+        <p style="margin-top:10px">In Obtainium, pick the source <b>F-Droid Third-Party Repo</b> and app ID <code>app.imgcraft</code>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>ImgCraft is an independent, personal project. It is not made by, endorsed by or affiliated with Imgur.
+      Imgur is a trademark of its owner.</p>
+    <p><a href="https://github.com/brnl-claude/imgcraft">Source on GitHub</a></p>
+  </div>
+</footer>
+<script>
+  // The repository's address depends on where the site is served, so the links are made here.
+  (function () {
+    var fingerprint = "8F3CF22C3E07C3318E882A707B1F5743A057866662AFA7639D619B488BC69E72";
+    var repo = new URL("fdroid/repo", location.href.split("#")[0]).href;
+    document.getElementById("repo-url").textContent = repo;
+    document.getElementById("fdroid").href =
+      repo.replace(/^https:/, "fdroidrepos:").replace(/^http:/, "fdroidrepo:") + "?fingerprint=" + fingerprint;
+    var app = {
+      id: "app.imgcraft",
+      url: repo + "?appId=app.imgcraft",
+      author: "ImgCraft",
+      name: "ImgCraft",
+      additionalSettings: JSON.stringify({ appIdOrName: "app.imgcraft", pickHighestVersionCode: true }),
+      overrideSource: "FDroidRepo"
+    };
+    document.getElementById("obtainium").href = "obtainium://app/" + encodeURIComponent(JSON.stringify(app));
+  })();
+</script>
+</body>
+</html>

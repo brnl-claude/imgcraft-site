@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fdroid>
+	<repo icon="icon.png" name="ImgCraft" pubkey="308204e5308202cda00302010202083dabec1160b0e551300d06092a864886f70d01010b05003020311e301c06035504031315496d67437261667420462d44726f6964207265706f3020170d3236313032323039343334355a180f32303534303330393039343334355a3020311e301c06035504031315496d67437261667420462d44726f6964207265706f30820222300d06092a864886f70d01010105000382020f003082020a0282020100cf741d0917be535934241ddc8f59bebb29902c6a6cd576f99ae0d887ebd5f30b73992836eb0b174a2ebf56df7aaf72b7a95b199adfc9d36e412e46bde33965e5c38c3c45ca236773f806e75198efecdeefccd746b1eca0cd5ea908a9bba714ccaf32ba16c4ecd12aa81c627fb3900af4585179e5484d458c5f6bb7159406feb73df62d86f9b3f502868276a1c0af4b2588f681330ff3d92252a7b4a5ed82e071fd07547ddee4830dcd14a4814f835658014a89c7b0eb2820317d587ccef5f11a9a159d7b1aef8c77e543f0f633b43c446878b9ec154df2ee04ba2cee0924ff211faf7ab7c6240e00253189ab067068d8c83bbe82c836ef040a084596b206cce064c84ae3564eda0fae5de347995b4956dc6787fd6c4900384bebcd93c0433ccc4cb4062c0bfc685a101a953190f3d6726134af9e6f2ee6a63cb5438e64707535e9561338dc5e95bede5927e6bd4f84065dc426ad11d1b5ed67fa3c5ccab5b952e51846e471ed83a83a23c3cc188ae02d2b75369c6db9f1b3b24c60ba4042b6656083386417650d3fe6e09f7dfe997b6f2e2016bb59668d742d8b59f329f282149df7606cff268d20fc06b2d5f182f9a6748bfd70bf4da32cb821de21c6c8898062861f98cfaf0dd5be95af1c2ee44fdff1095855929888aa187ac30923a32e978e94bc827acc5a0470a49a25cbdf55ac1be3d919ef2728bb4f632cc45e786d110203010001a321301f301d0603551d0e041604141891283cc685f2ba912e9ae0d25def1d31b902e1300d06092a864886f70d01010b0500038202010095bf9dd4592fdc0e8329acca987bed61a817215c6ac6a7c8e5a0817f0bbd6e4a92cad28ea076458d192c5b1fcf1489d67bc242d0b80ae0c18d82c4a5fe467b026f197fb332d39b09579029b25bc65888fb90e849def0711dcff4fa926375fa2414b60d09e3321378de86b6c35c73b39f1114d5e6a54f4873125cc7ab1883335ae699652511c84b9177f2e04a97296ac1dfc5d7b87c950c1cb8a2904237a3d2fb5aa9f9954df3ba77bf72cbbcef659541592c3f06eda77243f701ef8258b95ccc4984c3597a2790eb96a7b5f7ca179932074d9fc4278b1c204668eee762968180bfe9be723c60ab3d4ee7cb3cceff84cd7d4fb47ac9a8d417e13b90fd7f8160f06abae8125b30b5eaeb4da64bc81409446f682244f000338378cf43c6b140b3b78600f196e786dba29da5f4bbd1fb36c6c5ecd3a08ecd9ac96cc484b52f0c065edb8a2ee7dd74badc2cb1c1321d7701701c2c05597e4a9005ad269789c7f7253ed82e796cfa7fd0649a515ebfafcad63ba5d5ed592708048447d8df54b3e3efaa48a6f42479a77b970f41059bdc34a9843f029a378d912b863fb0c247380182a4161bbe82f1b1bc174a97def5152cd40ca19db396311043fd2fd8f529d305b20a2528c77be79f6a6915a57a4b0eb37b6a790345813562e67da678e8aff1a31705554ba2cd422e74ca39c9d822e6be549462a0ff1c37ded0ff887a5dfdbdd079f3" timestamp="1792769941" url="https://brnl-claude.github.io/imgcraft-site/fdroid/repo" version="20002">
+		<description>The ImgCraft app, an unofficial, lightweight Android frontend for Imgur.</description>
+	</repo>
+	<application id="app.imgcraft">
+		<id>app.imgcraft</id>
+		<added>2026-10-23</added>
+		<lastupdated>2026-10-23</lastupdated>
+		<name>ImgCraft</name>
+		<summary>Unofficial, lightweight Android frontend for Imgur</summary>
+		<desc>ImgCraft is an unofficial app for browsing Imgur, built on Imgur's v3 API. It is not
+made by, endorsed by or affiliated with Imgur.
+
+* Feed, search, tags, posts, albums, videos and comments
+* Favourites in folders, follows and hidden users and tags, kept on the device
+* Import favourites, follows, blocked users and muted tags from an Imgur account
+* Vote, comment and reply once logged in
+* No ads, analytics or Google Play services
+
+ImgCraft comes without an API key: paste the client ID of an Imgur API application in
+Settings.</desc>
+		<license>Proprietary</license>
+		<categories>Internet,Multimedia</categories>
+		<category>Internet</category>
+		<web></web>
+		<source>https://github.com/brnl-claude/imgcraft</source>
+		<tracker></tracker>
+		<author>Bram</author>
+		<marketversion></marketversion>
+		<marketvercode>172</marketvercode>
+		<package>
+			<version>0.8.0</version>
+			<versioncode>172</versioncode>
+			<apkname>ImgCraft-v0.8.0.apk</apkname>
+			<hash type="sha256">21627f732ad0e95b2449440200bd8466b9aea8458327841c303a14b5c058bdf5</hash>
+			<size>5012965</size>
+			<sdkver>28</sdkver>
+			<targetSdkVersion>36</targetSdkVersion>
+			<added>2026-10-23</added>
+			<sig>8e2128403d94dfa028c1c73d3c7806b0</sig>
+			<permissions>ACCESS_NETWORK_STATE,INTERNET,POST_NOTIFICATIONS,READ_EXTERNAL_STORAGE,RECEIVE_BOOT_COMPLETED,WRITE_EXTERNAL_STORAGE,app.imgcraft.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</permissions>
+			<uses-permission maxSdkVersion="28" name="android.permission.READ_EXTERNAL_STORAGE"/>
+			<uses-permission maxSdkVersion="28" name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+			<nativecode>arm64-v8a,armeabi-v7a,x86,x86_64</nativecode>
+		</package>
+		<package>
+			<version>0.7.9</version>
+			<versioncode>170</versioncode>
+			<apkname>ImgCraft-v0.7.9.apk</apkname>
+			<hash type="sha256">14e00ebb013a015f7ec5904c802991ba4f6bfe906c760995c9c131daba580884</hash>
+			<size>4996505</size>
+			<sdkver>28</sdkver>
+			<targetSdkVersion>36</targetSdkVersion>
+			<added>2026-10-23</added>
+			<sig>8e2128403d94dfa028c1c73d3c7806b0</sig>
+			<permissions>ACCESS_NETWORK_STATE,INTERNET,POST_NOTIFICATIONS,READ_EXTERNAL_STORAGE,RECEIVE_BOOT_COMPLETED,WRITE_EXTERNAL_STORAGE,app.imgcraft.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</permissions>
+			<uses-permission maxSdkVersion="28" name="android.permission.READ_EXTERNAL_STORAGE"/>
+			<uses-permission maxSdkVersion="28" name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+			<nativecode>arm64-v8a,armeabi-v7a,x86,x86_64</nativecode>
+		</package>
+		<package>
+			<version>0.7.8</version>
+			<versioncode>168</versioncode>
+			<apkname>ImgCraft-v0.7.8.apk</apkname>
+			<hash type="sha256">f982f80eb55d2e9853df260fa307aba019872c824ece9445f5a7e34c6d8e12ae</hash>
+			<size>4996433</size>
+			<sdkver>28</sdkver>
+			<targetSdkVersion>36</targetSdkVersion>
+			<added>2026-10-23</added>
+			<sig>8e2128403d94dfa028c1c73d3c7806b0</sig>
+			<permissions>ACCESS_NETWORK_STATE,INTERNET,POST_NOTIFICATIONS,READ_EXTERNAL_STORAGE,RECEIVE_BOOT_COMPLETED,WRITE_EXTERNAL_STORAGE,app.imgcraft.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</permissions>
+			<uses-permission maxSdkVersion="28" name="android.permission.READ_EXTERNAL_STORAGE"/>
+			<uses-permission maxSdkVersion="28" name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+			<nativecode>arm64-v8a,armeabi-v7a,x86,x86_64</nativecode>
+		</package>
+	</application>
+</fdroid>

@@ -1,0 +1,214 @@
+{
+  "repo": {
+    "name": {
+      "en-US": "ImgCraft"
+    },
+    "description": {
+      "en-US": "The ImgCraft app, an unofficial, lightweight Android frontend for Imgur."
+    },
+    "icon": {
+      "en-US": {
+        "name": "/icons/icon.png",
+        "sha256": "d54f56a46f7ddce51aada281258f88815c61f837438f30ebc15bf086c037727d",
+        "size": 3019
+      }
+    },
+    "address": "https://brnl-claude.github.io/imgcraft-site/fdroid/repo",
+    "timestamp": 1792769941000,
+    "categories": {
+      "Internet": {
+        "name": {
+          "en-US": "Internet"
+        }
+      },
+      "Multimedia": {
+        "name": {
+          "en-US": "Multimedia"
+        }
+      }
+    }
+  },
+  "packages": {
+    "app.imgcraft": {
+      "metadata": {
+        "added": 1792769940000,
+        "categories": [
+          "Internet",
+          "Multimedia"
+        ],
+        "lastUpdated": 1792769941000,
+        "license": "Proprietary",
+        "sourceCode": "https://github.com/brnl-claude/imgcraft",
+        "authorName": "Bram",
+        "name": {
+          "en-US": "ImgCraft"
+        },
+        "summary": {
+          "en-US": "Unofficial, lightweight Android frontend for Imgur"
+        },
+        "description": {
+          "en-US": "ImgCraft is an unofficial app for browsing Imgur, built on Imgur's v3 API. It is not\nmade by, endorsed by or affiliated with Imgur.\n\n* Feed, search, tags, posts, albums, videos and comments\n* Favourites in folders, follows and hidden users and tags, kept on the device\n* Import favourites, follows, blocked users and muted tags from an Imgur account\n* Vote, comment and reply once logged in\n* No ads, analytics or Google Play services\n\nImgCraft comes without an API key: paste the client ID of an Imgur API application in\nSettings."
+        },
+        "preferredSigner": "fc1abf67fb45a138e7d7f0001e40f1d5ce95ddc18a15ef5d88fa0ba6ed9362de"
+      },
+      "versions": {
+        "21627f732ad0e95b2449440200bd8466b9aea8458327841c303a14b5c058bdf5": {
+          "added": 1792769941000,
+          "file": {
+            "name": "/ImgCraft-v0.8.0.apk",
+            "sha256": "21627f732ad0e95b2449440200bd8466b9aea8458327841c303a14b5c058bdf5",
+            "size": 5012965
+          },
+          "manifest": {
+            "nativecode": [
+              "arm64-v8a",
+              "armeabi-v7a",
+              "x86",
+              "x86_64"
+            ],
+            "versionName": "0.8.0",
+            "versionCode": 172,
+            "usesSdk": {
+              "minSdkVersion": 28,
+              "targetSdkVersion": 36
+            },
+            "signer": {
+              "sha256": [
+                "fc1abf67fb45a138e7d7f0001e40f1d5ce95ddc18a15ef5d88fa0ba6ed9362de"
+              ]
+            },
+            "usesPermission": [
+              {
+                "name": "android.permission.INTERNET"
+              },
+              {
+                "name": "android.permission.ACCESS_NETWORK_STATE"
+              },
+              {
+                "name": "android.permission.POST_NOTIFICATIONS"
+              },
+              {
+                "name": "android.permission.RECEIVE_BOOT_COMPLETED"
+              },
+              {
+                "name": "android.permission.WRITE_EXTERNAL_STORAGE",
+                "maxSdkVersion": 28
+              },
+              {
+                "name": "app.imgcraft.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+              },
+              {
+                "name": "android.permission.READ_EXTERNAL_STORAGE",
+                "maxSdkVersion": 28
+              }
+            ]
+          }
+        },
+        "14e00ebb013a015f7ec5904c802991ba4f6bfe906c760995c9c131daba580884": {
+          "added": 1792769941000,
+          "file": {
+            "name": "/ImgCraft-v0.7.9.apk",
+            "sha256": "14e00ebb013a015f7ec5904c802991ba4f6bfe906c760995c9c131daba580884",
+            "size": 4996505
+          },
+          "manifest": {
+            "nativecode": [
+              "arm64-v8a",
+              "armeabi-v7a",
+              "x86",
+              "x86_64"
+            ],
+            "versionName": "0.7.9",
+            "versionCode": 170,
+            "usesSdk": {
+              "minSdkVersion": 28,
+              "targetSdkVersion": 36
+            },
+            "signer": {
+              "sha256": [
+                "fc1abf67fb45a138e7d7f0001e40f1d5ce95ddc18a15ef5d88fa0ba6ed9362de"
+              ]
+            },
+            "usesPermission": [
+              {
+                "name": "android.permission.INTERNET"
+              },
+              {
+                "name": "android.permission.ACCESS_NETWORK_STATE"
+              },
+              {
+                "name": "android.permission.POST_NOTIFICATIONS"
+              },
+              {
+                "name": "android.permission.RECEIVE_BOOT_COMPLETED"
+              },
+              {
+                "name": "android.permission.WRITE_EXTERNAL_STORAGE",
+                "maxSdkVersion": 28
+              },
+              {
+                "name": "app.imgcraft.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+              },
+              {
+                "name": "android.permission.READ_EXTERNAL_STORAGE",
+                "maxSdkVersion": 28
+              }
+            ]
+          }
+        },
+        "f982f80eb55d2e9853df260fa307aba019872c824ece9445f5a7e34c6d8e12ae": {
+          "added": 1792769940000,
+          "file": {
+            "name": "/ImgCraft-v0.7.8.apk",
+            "sha256": "f982f80eb55d2e9853df260fa307aba019872c824ece9445f5a7e34c6d8e12ae",
+            "size": 4996433
+          },
+          "manifest": {
+            "nativecode": [
+              "arm64-v8a",
+              "armeabi-v7a",
+              "x86",
+              "x86_64"
+            ],
+            "versionName": "0.7.8",
+            "versionCode": 168,
+            "usesSdk": {
+              "minSdkVersion": 28,
+              "targetSdkVersion": 36
+            },
+            "signer": {
+              "sha256": [
+                "fc1abf67fb45a138e7d7f0001e40f1d5ce95ddc18a15ef5d88fa0ba6ed9362de"
+              ]
+            },
+            "usesPermission": [
+              {
+                "name": "android.permission.INTERNET"
+              },
+              {
+                "name": "android.permission.ACCESS_NETWORK_STATE"
+              },
+              {
+                "name": "android.permission.POST_NOTIFICATIONS"
+              },
+              {
+                "name": "android.permission.RECEIVE_BOOT_COMPLETED"
+              },
+              {
+                "name": "android.permission.WRITE_EXTERNAL_STORAGE",
+                "maxSdkVersion": 28
+              },
+              {
+                "name": "app.imgcraft.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+              },
+              {
+                "name": "android.permission.READ_EXTERNAL_STORAGE",
+                "maxSdkVersion": 28
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
