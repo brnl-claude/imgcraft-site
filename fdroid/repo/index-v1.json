@@ -1,0 +1,186 @@
+{
+  "repo": {
+    "timestamp": 1793302319000,
+    "version": 20002,
+    "name": "ImgCraft",
+    "icon": "icon.png",
+    "address": "https://brnl-claude.github.io/imgcraft-site/fdroid/repo",
+    "description": "The ImgCraft app, an unofficial, lightweight Android frontend for Imgur."
+  },
+  "requests": {
+    "install": [],
+    "uninstall": []
+  },
+  "apps": [
+    {
+      "authorName": "Bram",
+      "categories": [
+        "Internet",
+        "Multimedia"
+      ],
+      "suggestedVersionCode": "206",
+      "description": "ImgCraft is an unofficial app for browsing Imgur, built on Imgur's v3 API. It is not\nmade by, endorsed by or affiliated with Imgur.\n\n* Feed, search, tags, posts, albums, videos and comments\n* Favourites in folders, follows and hidden users and tags, kept on the device\n* Import favourites, follows, blocked users and muted tags from an Imgur account\n* Vote, comment and reply once logged in\n* No ads, analytics or Google Play services\n\nImgCraft comes without an API key: paste the client ID of an Imgur API application in\nSettings.",
+      "license": "Proprietary",
+      "name": "ImgCraft",
+      "sourceCode": "https://github.com/brnl-claude/imgcraft",
+      "summary": "Unofficial, lightweight Android frontend for Imgur",
+      "added": 1793302318000,
+      "packageName": "app.imgcraft",
+      "lastUpdated": 1793302319000
+    }
+  ],
+  "packages": {
+    "app.imgcraft": [
+      {
+        "added": 1793302319000,
+        "apkName": "ImgCraft-v0.12.0.apk",
+        "hash": "c95d5e9400fd4c5d9423ec4b174be486942617297723c67437ef1c11c19ed860",
+        "hashType": "sha256",
+        "minSdkVersion": 28,
+        "nativecode": [
+          "arm64-v8a",
+          "armeabi-v7a",
+          "x86",
+          "x86_64"
+        ],
+        "packageName": "app.imgcraft",
+        "sig": "8e2128403d94dfa028c1c73d3c7806b0",
+        "signer": "fc1abf67fb45a138e7d7f0001e40f1d5ce95ddc18a15ef5d88fa0ba6ed9362de",
+        "size": 5603973,
+        "targetSdkVersion": 36,
+        "uses-permission": [
+          [
+            "android.permission.INTERNET",
+            null
+          ],
+          [
+            "android.permission.ACCESS_NETWORK_STATE",
+            null
+          ],
+          [
+            "android.permission.POST_NOTIFICATIONS",
+            null
+          ],
+          [
+            "android.permission.RECEIVE_BOOT_COMPLETED",
+            null
+          ],
+          [
+            "android.permission.WRITE_EXTERNAL_STORAGE",
+            28
+          ],
+          [
+            "app.imgcraft.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+            null
+          ],
+          [
+            "android.permission.READ_EXTERNAL_STORAGE",
+            28
+          ]
+        ],
+        "versionCode": 206,
+        "versionName": "0.12.0"
+      },
+      {
+        "added": 1793302319000,
+        "apkName": "ImgCraft-v0.11.0.apk",
+        "hash": "caeb73ac0f695b20aee2d317ed36d5a7395f69c4d0f5ea14afb9fdbbe41b5db7",
+        "hashType": "sha256",
+        "minSdkVersion": 28,
+        "nativecode": [
+          "arm64-v8a",
+          "armeabi-v7a",
+          "x86",
+          "x86_64"
+        ],
+        "packageName": "app.imgcraft",
+        "sig": "8e2128403d94dfa028c1c73d3c7806b0",
+        "signer": "fc1abf67fb45a138e7d7f0001e40f1d5ce95ddc18a15ef5d88fa0ba6ed9362de",
+        "size": 5603893,
+        "targetSdkVersion": 36,
+        "uses-permission": [
+          [
+            "android.permission.INTERNET",
+            null
+          ],
+          [
+            "android.permission.ACCESS_NETWORK_STATE",
+            null
+          ],
+          [
+            "android.permission.POST_NOTIFICATIONS",
+            null
+          ],
+          [
+            "android.permission.RECEIVE_BOOT_COMPLETED",
+            null
+          ],
+          [
+            "android.permission.WRITE_EXTERNAL_STORAGE",
+            28
+          ],
+          [
+            "app.imgcraft.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+            null
+          ],
+          [
+            "android.permission.READ_EXTERNAL_STORAGE",
+            28
+          ]
+        ],
+        "versionCode": 204,
+        "versionName": "0.11.0"
+      },
+      {
+        "added": 1793302318000,
+        "apkName": "ImgCraft-v0.10.8.apk",
+        "hash": "7bfb8cdf44864161417e402dc942d257ca892e31329a0d911be70e852f997575",
+        "hashType": "sha256",
+        "minSdkVersion": 28,
+        "nativecode": [
+          "arm64-v8a",
+          "armeabi-v7a",
+          "x86",
+          "x86_64"
+        ],
+        "packageName": "app.imgcraft",
+        "sig": "8e2128403d94dfa028c1c73d3c7806b0",
+        "signer": "fc1abf67fb45a138e7d7f0001e40f1d5ce95ddc18a15ef5d88fa0ba6ed9362de",
+        "size": 5603821,
+        "targetSdkVersion": 36,
+        "uses-permission": [
+          [
+            "android.permission.INTERNET",
+            null
+          ],
+          [
+            "android.permission.ACCESS_NETWORK_STATE",
+            null
+          ],
+          [
+            "android.permission.POST_NOTIFICATIONS",
+            null
+          ],
+          [
+            "android.permission.RECEIVE_BOOT_COMPLETED",
+            null
+          ],
+          [
+            "android.permission.WRITE_EXTERNAL_STORAGE",
+            28
+          ],
+          [
+            "app.imgcraft.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+            null
+          ],
+          [
+            "android.permission.READ_EXTERNAL_STORAGE",
+            28
+          ]
+        ],
+        "versionCode": 202,
+        "versionName": "0.10.8"
+      }
+    ]
+  }
+}
